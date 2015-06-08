@@ -111,27 +111,31 @@ class UC017 extends UC {
             }
             
             List<Livro> livros = livroController.consultaLivros(nomeLivro, edicao, ano, categoria, autor);
+            validaVisualizacao(livros);
             
-            if(livros.size() == 1){
-                Livro livro = livros.get(0);
-                System.out.println("**************************");
-                System.out.println("Livro: " + livro.getNome());
-                System.out.println("** codigo - " + livro.getCodLivro());
-                System.out.println("** edicao - " + livro.getEdicao());
-                System.out.println("** ano - " + livro.getAno());
-                System.out.println("** autor - " + livro.getAutor().getNome());
-                System.out.println("** categoria - " + livro.getCategoria().getDescricao());
-                System.out.println("** quantidade estoque - " + livro.quantidade());
-                System.out.println("** quantidade disponível - " + livro.quantidadeDisponivel());
-                System.out.println("**************************");
-            } else {
-                livros.stream().forEach((livro) -> {
-                    System.out.println("Livro [nome=" + livro.getNome() + ", autor=" + livro.getAutor().getNome() +"]");
-                });
-            }
             
         } catch (Exception ex) {
             Logger.getLogger(UC017.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void validaVisualizacao(List<Livro> livros){
+        if(livros.size() == 1){
+            Livro livro = livros.get(0);
+            System.out.println("**************************");
+            System.out.println("Livro: " + livro.getNome());
+            System.out.println("** codigo - " + livro.getCodLivro());
+            System.out.println("** edicao - " + livro.getEdicao());
+            System.out.println("** ano - " + livro.getAno());
+            System.out.println("** autor - " + livro.getAutor().getNome());
+            System.out.println("** categoria - " + livro.getCategoria().getDescricao());
+            System.out.println("** quantidade estoque - " + livro.quantidade());
+            System.out.println("** quantidade disponível - " + livro.quantidadeDisponivel());
+            System.out.println("**************************");
+        } else {
+            livros.stream().forEach((livro) -> {
+                System.out.println("Livro [nome=" + livro.getNome() + ", autor=" + livro.getAutor().getNome() +"]");
+            });
         }
     }
 }

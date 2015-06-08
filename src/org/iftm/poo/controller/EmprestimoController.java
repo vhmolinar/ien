@@ -67,4 +67,13 @@ public class EmprestimoController {
      public List<ItemEmprestimo> itensEmprestimo(Emprestimo emprestimo)throws Exception{
          return emprestimoService.itensEmprestimo(emprestimo);
      }
+     
+     public List<Emprestimo> listaEmprestimos() throws Exception{
+         Emprestimo emprestimo = new Emprestimo();
+         return emprestimoService.pesquisarPorExemplo(emprestimo);
+     }
+     
+     public Emprestimo atualizar(Emprestimo emprestimo) throws Exception{
+         return emprestimoService.atualizar(emprestimo);
+     }
 }

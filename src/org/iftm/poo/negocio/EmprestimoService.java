@@ -94,4 +94,8 @@ public class EmprestimoService {
      }
     
     
+    public Emprestimo atualizar(Emprestimo emprestimo) throws Exception{
+        return emprestimoDao.salvarAtualizar(emprestimo);
+    }
+    
 }
