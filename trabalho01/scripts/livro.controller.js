@@ -15,14 +15,15 @@ ienApp.controller('LivroController',['$scope', function($scope){
     $scope.registra = function(novoLivro){
 
         var atualizacao = false;
-        angular.forEach($scope.livros, function(livro){
-            if(livro.codigo == novoLivro){
-                angular.extend(livro, novoLivro);
-                atualizacao = true;
 
-                return false;
+        for(var i=0; i<$scope.livros.length; ++i){
+            var livro = $scope.livros[i];
+
+            if(atualizacao = (livro.codigo == novoLivro.codigo)){
+                angular.extend(livro, novoLivro);
+                break;
             }
-        });
+        }
 
         if(!atualizacao){
             novoLivro.codigo = ++contador;

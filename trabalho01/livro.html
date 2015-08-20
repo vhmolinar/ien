@@ -73,7 +73,7 @@
                       <th>Edição</th>
                       <th>Ano</th>
                     </tr>
-                    <tr ng-repeat="livro in livros" ng-click="seleciona(livro)">
+                    <tr ng-repeat="livro in livros track by livro.codigo" ng-click="seleciona(livro)">
                       <td>{{livro.codigo}}</td>
                       <td>{{livro.nome}}</td>
                       <td>{{livro.edicao}}</td>
