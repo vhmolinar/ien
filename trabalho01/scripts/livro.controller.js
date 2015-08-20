@@ -31,4 +31,7 @@ ienApp.controller('LivroController',['$scope', function($scope){
         }
     };
 
+    $scope.limpa = function(){
+        $scope.livro = {};
+    };
 }]);
