@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login</title>
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.css" rel="stylesheet">
+	<link href="css/estilo.css" rel="stylesheet">
+  </head>
+  
+  <body>
+  
+	<div class="container">
+		<form action="" method="" accept-charset="utf-8" class="form-login">
+			<h2 class="form-login-heading"> Sistema Bibliotecário</h2>
+			
+			<label for="inputUsuario">Usuário</label>
+			<input type="usuario" id="inputUsuario" class="form-control" placeholde="Usuario"> <!--required autofocus-->
+			
+			<label for="inputSenha">Senha</label>
+			<input type="password" id="inputSenha" class="form-control" placeholde="Senha" ng-model="loginData.password"> <!--required-->
+			
+			<div class="checkbox">
+				<label>
+				<input type="checkbox" value="esqueci">Esqueci a senha!
+				</label>
+			</div>
+			<button type="submit" formaction="adm.html" class="btn btn-lg btn-primary btn-block"> Entrar como Administrador </button>
+			<button type="submit" formaction="aluno.html" class="btn btn-lg btn-primary btn-block"> Entrar como Aluno </button>
+			<button type="submit" formaction="professor.html" class="btn btn-lg btn-primary btn-block"> Entrar como Professor </button>			
+		<form>
+	</div>
+  
+  </body>
+  
+</html>

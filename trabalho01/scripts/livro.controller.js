@@ -1,0 +1,33 @@
+ienApp.controller('LivroController',['$scope', function($scope){
+
+    $scope.livros = [
+        {codigo:1, nome:"O Monge e o Executivo", edicao: "1", ano: 2015},
+        {codigo:2, nome:"Shantala", edicao: "1a", ano: 2013},
+        {codigo:3, nome:"Ansiedade, Mal do Século", edicao: "10", ano: 2014}
+    ];
+
+    var contador = $scope.livros.length;
+
+    $scope.seleciona = function(livro){
+        $scope.livro = livro;
+    };
+
+    $scope.registra = function(novoLivro){
+
+        var atualizacao = false;
+        angular.forEach($scope.livros, function(livro){
+            if(livro.codigo == novoLivro){
+                angular.extend(livro, novoLivro);
+                atualizacao = true;
+
+                return false;
+            }
+        });
+
+        if(!atualizacao){
+            novoLivro.codigo = ++contador;
+            $scope.livros.push(novoLivro);
+        }
+    };
+
+}]);
