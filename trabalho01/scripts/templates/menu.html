@@ -46,11 +46,10 @@
         </ul>
       </li>
 
-      <li class="dropdown">
+      <li class="dropdown" ng-if="tipoUsuario == 'administrador' || tipoUsuario == 'professor'">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sugestões <span class="caret"></span></a>
         <ul class="dropdown-menu">
-        <li><a href="consultaSugestoes.html">Consulta Sugestões de Livros</a></li>
-        <li><a href="realizaSugestoes.html">Realiza Sugestões de Livros</a></li>
+          <li><a href="sugestoes.html">Consulta Sugestões de Livros</a></li>
         </ul>
       </li>
       </ul>
