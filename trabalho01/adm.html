@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="IenApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,80 +20,25 @@
   </head>
   <body>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.js"></script>
-	<script src="js/angular.js"></script>
-	<script src="js/angular-resource.js"></script>
-	
-	<nav class="navbar navbar-default">
-	  <div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		  </button>
-		  <a class="navbar-brand" href="default.html" target="frame">Sistema Bibliotecário</a>
-		</div>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-resource.js"></script>
 
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		  <ul class="nav navbar-nav">
-		  
-			<li class="dropdown">
-			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuários <span class="caret"></span></a>
-			  <ul class="dropdown-menu">
-				<li><a href="cadastraAluno.html">Cadastra/Consulta Aluno</a></li>
-				<li><a href="cadastraProfessor.html">Cadastra/Consulta Professor</a></li>
-			  </ul>
-			</li>
-			
-			<li class="dropdown">
-			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Empréstimos <span class="caret"></span></a>
-			  <ul class="dropdown-menu">
-				<li><a href="realizaEmprestimo.html">Consulta/Realiza Empréstimos</a></li>
-				<li><a href="renovaEmprestimos.html">Renova Empréstimos</a></li>
-			  </ul>
-			</li>
-			
-			<li class="dropdown">
-			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reservas <span class="caret"></span></a>
-			  <ul class="dropdown-menu">
-				<li><a href="consultaReservas.html">Consulta Reservas</a></li>
-				<li><a href="realizaReserva.html">Realiza Reservas</a></li>
-			  </ul>
-			</li>
-			
-			<li class="dropdown">
-			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Livros <span class="caret"></span></a>
-			  <ul class="dropdown-menu">
-				<li><a href="consultaLivros.html">Consulta Livros</a></li>
-				<li><a href="cadastraLivro.html">Cadastra Livros</a></li>
-			  </ul>
-			</li>
-			
-			<li class="dropdown">
-			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sugestões <span class="caret"></span></a>
-			  <ul class="dropdown-menu">
-				<li><a href="consultaSugestoes.html">Consulta Sugestões de Livros</a></li>
-				<li><a href="realizaSugestoes.html">Realiza Sugestões de Livros</a></li>
-			  </ul>
-			</li>
-		  </ul>
-			
-		  </ul>
-		</div><!-- /.navbar-collapse -->
-	  </div><!-- /.container-fluid -->
-	</nav>
-	
+    <script src="scripts/modules.js"></script>
+
+
+    <script src="scripts/modules.js"></script>
+
+    <ien-menu tipo-usuario="administrador">
+    </ien-menu>
+
 	<h2>Seja Bem Vindo Administrador!!!</h2>
-	
+
 	<div class="embed-responsive embed-responsive-16by9">
 		<iframe name="frame" class="embed-responsive-item" src="default.html"></iframe>
 	</div>
-    
+
   </body>
 </html>
