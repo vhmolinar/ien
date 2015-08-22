@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="IenApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +9,7 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
-	<link href="css/bootstrap-theme.css" rel="stylesheet">
+	  <link href="css/bootstrap-theme.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,18 +20,93 @@
   </head>
   <body>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.js"></script>
-	<script src="js/angular.js"></script>
-	<script src="js/angular-resource.js"></script>
-	
-	
-	<h2>Renova Empréstimos</h2>
-	
-	<div class="embed-responsive embed-responsive-16by9">
-		<iframe name="frame" class="embed-responsive-item" src="default.html"></iframe>
-	</div>
-    
+    <script src="js/angular.js"></script>
+    <script src="js/angular-resource.js"></script>
+
+    <script src="scripts/modules.js"></script>
+    <script src="scripts/renovarEmprestimo.controller.js"></script>
+
+    <div ng-controller="RenovarEmprestimoController">
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#renova_emprestimo" data-toggle="tab">Cadastro</a></li>
+            <li role="presentation"><a href="#dados_emprestimos" data-toggle="tab">Dados</a></li>
+          </ul>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Renovação de Empréstimo</h3>
+            </div>
+            <div class="panel-body">
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="renova_emprestimo">
+                  <form>
+                    <div class="form-group">
+                      <label for="Codigo">Código do Empréstimo</label>
+                      <input type="text" disabled class="form-control" placeholder="Empréstimo" ng-model="emprestimo.codigo">
+                    </div>
+                    <div class="form-group">
+                      <label for="usuario">Usuário</label>
+                      <input type="text" disabled class="form-control" placeholder="Usuário" ng-model="emprestimo.usuario">
+                    </div>
+                    <div class="form-group">
+                      <label for="nome">Livro</label>
+                      <input type="text" disabled class="form-control" placeholder="Livro" ng-model="emprestimo.livro">
+                    </div>
+                    <div class="form-group">
+                      <label for="data">Data Empréstimo</label>
+                      <input type="text" disabled class="form-control" placeholder="Data Empréstimo" ng-model="novaDataEmp.value | date: 'dd/MM/yyyy'">
+                    </div>                    
+                    <div class="form-group">
+                      <label for="data">Nova Data Devolução</label>
+                      <input type="text" disabled class="form-control" placeholder="Data Devolução" ng-model="novaDataDev.value | date: 'dd/MM/yyyy'">
+                    </div>
+                    <button type="submit" class="btn btn-default" ng-click="renova_emprestimo(emprestimo)">
+                        Renovar
+                    </button>
+                    <button type="button" class="btn btn-default" ng-click="limpa()">
+                        Limpar
+                    </button>
+                  </form>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="dados_emprestimos">
+                  <label for="search">Localizar Usuário</label>
+                  <input type="search" ng-model="usuario" placeholder="Localizar usuário" aria-label="Localizar usuário" />
+
+                  <table class="table table-hover">
+                    <tr>
+                      <th>Código</th>
+                      <th>Nome</th>
+                    </tr>
+                    <tr ng-repeat="pessoa in pessoas | filter:usuario" ng-click="seleciona_pessoa(pessoa)">
+                      <td>{{pessoa.codigo}}</td>
+                      <td>{{pessoa.nome}}</td>
+                    </tr>
+                  </table>
+
+                  <table class="table table-hover">
+                    <tr>
+                      <th>Código</th>
+                      <th>Usuário</th>
+                      <th>Livro</th>
+                      <th>Data Empréstimo</th>
+                      <th>Data Devolução</th>
+                    </tr>
+                    <tr ng-repeat="emprestimo in emprestimos | filter:pessoa.nome" ng-click="seleciona_emprestimo(emprestimo)">
+                      <td>{{emprestimo.codigo}}</td>
+                      <td>{{emprestimo.usuario}}</td>
+                      <td>{{emprestimo.livro}}</td>
+                      <td>{{emprestimo.data_emprestimo}}</td>
+                      <td>{{emprestimo.data_devolucao}}</td>
+                    </tr>
+                  </table>
+                  <span ng-show="(emprestimos | filter:pessoa.nome).length == 0">Nenhum Empréstimo Encontrado!</span>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
   </body>
 </html>
