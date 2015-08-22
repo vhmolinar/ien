@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Livros</title>
+    <title>Sugestões</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -27,62 +27,57 @@
     <script src="js/angular-resource.js"></script>
 
     <script src="scripts/modules.js"></script>
-    <script src="scripts/livro.controller.js"></script>
+    <script src="scripts/sugestao.controller.js"></script>
 
-    <ien-menu>
+    <ien-menu tipo-usuario="professor">
     </ien-menu>
 
-    <div ng-controller="LivroController">
+    <div ng-controller="SugestaoController">
         <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#cadastro_livros" data-toggle="tab">Cadastro</a></li>
-            <li role="presentation"><a href="#dados_livros" data-toggle="tab">Dados</a></li>
+            <li role="presentation" class="active"><a href="#cadastro_sugestoes" data-toggle="tab">Cadastro</a></li>
+            <li role="presentation"><a href="#dados_sugestoes" data-toggle="tab">Dados</a></li>
           </ul>
 
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h3 class="panel-title">Cadastro de Livro</h3>
+              <h3 class="panel-title">Cadastro de Sugestão</h3>
             </div>
             <div class="panel-body">
               <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="cadastro_livros">
+                <div role="tabpanel" class="tab-pane active" id="cadastro_sugestoes">
                   <form>
                     <div class="form-group">
                       <label for="Codigoo">Código</label>
-                      <input type="text" disabled class="form-control" ng-model="livro.codigo">
+                      <input type="text" disabled class="form-control" ng-model="sugestao.codigo">
                     </div>
                     <div class="form-group">
-                      <label for="nome">Nome</label>
-                      <input type="text" class="form-control" placeholder="Nome" ng-model="livro.nome">
+                      <label for="nome">Professor</label>
+                      <input type="text" class="form-control" placeholder="Professor" ng-model="sugestao.professor">
                     </div>
                     <div class="form-group">
-                      <label for="nome">Edição</label>
-                      <input type="text" class="form-control" placeholder="Edição" ng-model="livro.edicao">
+                      <label for="nome">Livro</label>
+                      <input type="text" class="form-control" placeholder="Livro" ng-model="sugestao.livro">
                     </div>
-                    <div class="form-group">
-                      <label for="nome">Ano</label>
-                      <input type="text" class="form-control" placeholder="Ano" ng-model="livro.ano">
-                    </div>
-                    <button type="submit" class="btn btn-default" ng-click="registra(livro)">
-                        {{livro.codigo ? 'Atualizar' : 'Registrar'}}
+                    
+                    <button type="submit" class="btn btn-default" ng-click="registra(sugestao)">
+                        {{sugestao.codigo ? 'Atualizar' : 'Registrar'}}
                     </button>
                     <button type="button" class="btn btn-default" ng-click="limpa()">
                         Limpa
                     </button>
                   </form>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="dados_livros">
+                <div role="tabpanel" class="tab-pane" id="dados_sugestoes">
                   <table class="table table-hover">
                     <tr>
                       <th>Código</th>
-                      <th>Nome</th>
-                      <th>Edição</th>
-                      <th>Ano</th>
+                      <th>Professor</th>
+                      <th>Livro</th>
                     </tr>
-                    <tr ng-repeat="livro in livros track by livro.codigo" ng-click="seleciona(livro)">
-                      <td>{{livro.codigo}}</td>
-                      <td>{{livro.nome}}</td>
-                      <td>{{livro.edicao}}</td>
-                      <td>{{livro.ano}}</td>
+                    <tr ng-repeat="sugestao in sugestoes track by sugestao.codigo" ng-click="seleciona(sugestao)">
+                      <td>{{sugestao.codigo}}</td>
+                      <td>{{sugestao.professor}}</td>
+                      <td>{{sugestao.livro}}</td>
                     </tr>
                   </table>
                 </div>
