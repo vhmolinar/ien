@@ -9,5 +9,12 @@ ienUi.directive('ienMenu', function(){
         }
     };
 });
+ienUi.service("$ui", function(){
+    return{
+        tab: function(panelId){
+            $('.nav-tabs a[href="#' + panelId + '"]').tab('show');
+        }
+    };
+});
 
 var ienApp = angular.module('IenApp', ['IenUi']);
