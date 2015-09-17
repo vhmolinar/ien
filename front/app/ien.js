@@ -8,7 +8,7 @@ ien.run(['$location','$timeout', function($location, $timeout){
 
 }]);
 
-ien.controller('homeControl',['$rootScope','$location',
+ien.controller('homeController',['$rootScope','$location',
     function($rootScope, $location){
 
     $rootScope.go = function(path){
@@ -23,12 +23,12 @@ ien.config(['$routeProvider','$locationProvider',
     $routeProvider.when('/livro/:id?', {
 
         templateUrl: 'views/livro.html',
-        controller: 'livroControl'
+        controller: 'livroController'
 
     }).when('/home', {
 
         templateUrl: 'views/home.html',
-        controller: 'homeControl'
+        controller: 'homeController'
 
     }).otherwise({
 

@@ -1,4 +1,4 @@
-angular.module('ien').controller('LivroController',['$scope', '$ui', function($scope, $ui){
+angular.module('ien').controller('livroController',['$scope', '$ui', function($scope, $ui){
 
     $scope.livros = [
         {codigo:1, nome:"O Monge e o Executivo", edicao: "1", ano: 2015},
