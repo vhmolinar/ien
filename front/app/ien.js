@@ -1,6 +1,6 @@
-var ien = angular.module('ien', ['ngRoute','ngResource', 'ienUi']);
+angular.module('ien', ['ngRoute','ngResource', 'ienUi']);
 
-ien.run(['$location','$timeout', function($location, $timeout){
+angular.module('ien').run(['$location','$timeout', function($location, $timeout){
 
     $timeout(function(){
         $location.path('/home');
@@ -8,7 +8,7 @@ ien.run(['$location','$timeout', function($location, $timeout){
 
 }]);
 
-ien.controller('homeController',['$rootScope','$location',
+angular.module('ien').controller('homeController',['$rootScope','$location',
     function($rootScope, $location){
 
     $rootScope.go = function(path){
@@ -17,7 +17,7 @@ ien.controller('homeController',['$rootScope','$location',
 
 }]);
 
-ien.config(['$routeProvider','$locationProvider',
+angular.module('ien').config(['$routeProvider','$locationProvider',
     function($routeProvider, $locationProvider){
 
     $routeProvider.when('/livro/:id?', {
