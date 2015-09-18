@@ -7,11 +7,9 @@ package org.iftm.poo.model.dao;
 
 import java.lang.reflect.Field;
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Id;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.criterion.Example;
 
 /**
  * Design patterns:
@@ -41,10 +39,12 @@ public abstract class TemplateDao<T> {
     }
     
     protected List<T> pesquisar(EntityManager em, T entity) throws Exception{
-        Session session = (Session) em.getDelegate();
-        Example example = Example.create(entity).excludeZeroes();
-        Criteria criteria = session.createCriteria(tipoEntidade).add(example);
-        return criteria.list();
+//        Session session = (Session) em.getDelegate();
+//        Example example = Example.create(entity).excludeZeroes();
+//        Criteria criteria = session.createCriteria(tipoEntidade).add(example);
+//        return criteria.list();
+    	
+    	return null;
     }
     
     public T salvarAtualizar(EntityManager em, T entity) throws Exception{
