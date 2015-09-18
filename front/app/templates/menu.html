@@ -1,0 +1,59 @@
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#/home" target="frame">Sistema Bibliotecário</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+      <li class="dropdown" ng-if="tipoUsuario == 'administrador'">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuários <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#/aluno">Cadastra/Consulta Aluno</a></li>
+          <li><a href="#/professor">Cadastra/Consulta Professor</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Empréstimos <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#/emprestimo">Consulta/Realiza Empréstimos</a></li>
+          <li><a href="#/emprestimo/renova">Renova Empréstimos</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reservas <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#/reserva">Reservas</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Livros <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#/livro">Livros</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown" ng-if="tipoUsuario == 'professor'">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sugestões <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#/sugestao">Consulta Sugestões de Livros</a></li>
+        </ul>
+      </li>
+      </ul>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>

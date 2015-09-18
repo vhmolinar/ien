@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="IenApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Sugestões</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-resource.js"></script>
+
+    <script src="scripts/modules.js"></script>
+    <script src="scripts/sugestao.controller.js"></script>
+
+    <ien-menu tipo-usuario="professor">
+    </ien-menu>
+
+    <div ng-controller="SugestaoController">
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#cadastro_sugestoes" data-toggle="tab">Cadastro</a></li>
+            <li role="presentation"><a href="#dados_sugestoes" data-toggle="tab">Dados</a></li>
+          </ul>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Cadastro de Sugestão</h3>
+            </div>
+            <div class="panel-body">
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="cadastro_sugestoes">
+                  <form>
+                    <div class="form-group">
+                      <label for="Codigoo">Código</label>
+                      <input type="text" disabled class="form-control" ng-model="sugestao.codigo">
+                    </div>
+                    <div class="form-group">
+                      <label for="nome">Professor</label>
+                      <input type="text" class="form-control" placeholder="Professor" ng-model="sugestao.professor">
+                    </div>
+                    <div class="form-group">
+                      <label for="nome">Livro</label>
+                      <input type="text" class="form-control" placeholder="Livro" ng-model="sugestao.livro">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-default" ng-click="registra(sugestao)">
+                        {{sugestao.codigo ? 'Atualizar' : 'Registrar'}}
+                    </button>
+                    <button type="button" class="btn btn-default" ng-click="limpa()">
+                        Limpa
+                    </button>
+                  </form>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="dados_sugestoes">
+                  <table class="table table-hover">
+                    <tr>
+                      <th>Código</th>
+                      <th>Professor</th>
+                      <th>Livro</th>
+                    </tr>
+                    <tr ng-repeat="sugestao in sugestoes track by sugestao.codigo" ng-click="seleciona(sugestao)">
+                      <td>{{sugestao.codigo}}</td>
+                      <td>{{sugestao.professor}}</td>
+                      <td>{{sugestao.livro}}</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+  </body>
+</html>
