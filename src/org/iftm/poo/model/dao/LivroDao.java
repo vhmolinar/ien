@@ -6,9 +6,13 @@
 package org.iftm.poo.model.dao;
 
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import org.hibernate.SQLQuery;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.Example;
 import org.iftm.poo.model.domain.Livro;
 import org.iftm.poo.model.domain.Usuario;
 
@@ -35,7 +39,7 @@ public class LivroDao extends TemplateDao<Livro>{
         return (List<Livro>) operacaoTransacional(new ComandoPersistencia() {
             @Override
             public Object execute(EntityManager em) throws Exception {
-                StringBuilder sql = new StringBuilder("select l.* from Livro l ");
+                StringBuilder sql = new StringBuilder("select l.* from livro l ");
                 sql.append("inner join item_livro il on il.cod_livro = l.cod ");
                 sql.append("inner join item_emprestimo ie on ie.cod_item_livro=il.cod ");
                 sql.append("inner join emprestimo e on e.cod = ie.cod_emprestimo ");
@@ -68,15 +72,15 @@ public class LivroDao extends TemplateDao<Livro>{
         if(livro.getNome() != null && !livro.getNome().equals("")){
             sql.append("and livro.nome like :nome ");
         }
-        if(livro.getCategoria() != null && 
-            livro.getCategoria().getDescricao() != null && !livro.getCategoria().getDescricao().equals("")){
-            sql.append("and categoria.descricao like :categoria");
-        }
-        if(livro.getAutor() != null && 
-            livro.getAutor().getNome() != null &&
-            !livro.getAutor().getNome().equals("")){
-            sql.append("and autor.nome like :autor");
-        }
+//        if(livro.getCategoria() != null && 
+//            livro.getCategoria().getDescricao() != null && !livro.getCategoria().getDescricao().equals("")){
+//            sql.append("and categoria.descricao like :categoria");
+//        }
+//        if(livro.getAutor() != null && 
+//            livro.getAutor().getNome() != null &&
+//            !livro.getAutor().getNome().equals("")){
+//            sql.append("and autor.nome like :autor");
+//        }
         
         Query query = em.createQuery(sql.toString());
         if(livro.getCodLivro() != null){
