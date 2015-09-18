@@ -35,7 +35,7 @@ public class LivroDao extends TemplateDao<Livro>{
         return (List<Livro>) operacaoTransacional(new ComandoPersistencia() {
             @Override
             public Object execute(EntityManager em) throws Exception {
-                StringBuilder sql = new StringBuilder("select l.* from livro l ");
+                StringBuilder sql = new StringBuilder("select l.* from Livro l ");
                 sql.append("inner join item_livro il on il.cod_livro = l.cod ");
                 sql.append("inner join item_emprestimo ie on ie.cod_item_livro=il.cod ");
                 sql.append("inner join emprestimo e on e.cod = ie.cod_emprestimo ");
@@ -51,7 +51,7 @@ public class LivroDao extends TemplateDao<Livro>{
     
     @Override
     protected List<Livro> pesquisar(EntityManager em, Livro livro) throws Exception {
-        StringBuilder sql = new StringBuilder("select livro from Livro as livro");
+        StringBuilder sql = new StringBuilder("select livro from Livro as livro ");
         sql.append(" inner join fetch livro.categoria as categoria");
         sql.append(" inner join fetch livro.autor as autor");
         sql.append(" where 1=1 ");
