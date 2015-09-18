@@ -1,10 +1,10 @@
-ienApp.controller('AlunoController',['$scope', function($scope){
+angular.module('ien').controller('alunoController',['$scope', function($scope){
 
     $scope.alunos = [
         {codigo:1, matricula:"123456", nome: "Joao Pedro", cpf: "12345678909", nascimento: "23/04/1990", endereco: "rua tal bairro tal"},
         {codigo:2, matricula:"123456", nome: "Joao Augusto", cpf: "12345678909", nascimento: "23/04/1990", endereco: "rua tal bairro tal"},
         {codigo:3, matricula:"123456", nome: "Maria", cpf: "12345678909", nascimento: "23/04/1990", endereco: "rua tal bairro tal"},
-		{codigo:4, matricula:"123456", nome: "Joana", cpf: "12345678909", nascimento: "23/04/1990", endereco: "rua tal bairro tal"}
+        {codigo:4, matricula:"123456", nome: "Joana", cpf: "12345678909", nascimento: "23/04/1990", endereco: "rua tal bairro tal"}
     ];
 
     var contador = $scope.alunos.length;

@@ -1,4 +1,22 @@
-angular.module('ien').controller('livroController',['$scope', '$ui', function($scope, $ui){
+angular.module('ien').controller('livroController',[
+    '$scope',
+    '$ui',
+    '$resource',
+    '$timeout',
+    function($scope,
+             $ui,
+             $resource,
+             $timeout){
+
+    var Livro = $resource('/ien/livro');
+
+    $timeout(function(){
+        Livro.$query().then(function resposta(resp){
+            console.log(resp);
+        }, function falha(){
+            alert("Falha ao carregar livros!");
+        });
+    });
 
     $scope.livros = [
         {codigo:1, nome:"O Monge e o Executivo", edicao: "1", ano: 2015},
@@ -20,6 +38,8 @@ angular.module('ien').controller('livroController',['$scope', '$ui', function($s
     };
 
     $scope.registra = function(novoLivro){
+
+
 
         var atualizacao = false;
 
