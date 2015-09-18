@@ -47,7 +47,6 @@ public class LivroDao extends TemplateDao<Livro>{
                 return query.getResultList();
             }
         });
-        
     }
     
     @Override
