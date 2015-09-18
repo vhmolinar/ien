@@ -2,6 +2,27 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/home/vhmolinar/pos/trabalho_final_poo/IEN/src/org/iftm/poo/service/DaoFactory.java</file>
+            <file>file:/home/vhmolinar/pos/trabalho_final_poo/IEN/src/org/iftm/main/UC.java</file>
+            <file>file:/home/vhmolinar/pos/trabalho_final_poo/IEN/src/org/iftm/poo/negocio/UsuarioService.java</file>
+            <file>file:/home/vhmolinar/pos/trabalho_final_poo/IEN/src/org/iftm/main/UC017.java</file>
+            <file>file:/home/vhmolinar/pos/trabalho_final_poo/IEN/src/org/iftm/poo/model/domain/ItemLivro.java</file>
+            <file>file:/home/vhmolinar/pos/trabalho_final_poo/IEN/src/org/iftm/poo/model/dao/LivroDao.java</file>
+            <file>file:/home/vhmolinar/pos/trabalho_final_poo/IEN/src/org/iftm/poo/model/domain/Emprestimo.java</file>
+            <file>file:/home/vhmolinar/pos/trabalho_final_poo/IEN/src/org/iftm/poo/controller/UsuarioController.java</file>
+            <file>file:/home/vhmolinar/pos/trabalho_final_poo/IEN/src/org/iftm/poo/negocio/LivroService.java</file>
+            <file>file:/home/vhmolinar/pos/trabalho_final_poo/IEN/src/META-INF/persistence.xml</file>
+            <file>file:/home/vhmolinar/pos/trabalho_final_poo/IEN/src/org/iftm/main/UC014.java</file>
+            <file>file:/home/vhmolinar/pos/trabalho_final_poo/IEN/src/org/iftm/poo/controller/EmprestimoController.java</file>
+            <file>file:/home/vhmolinar/pos/trabalho_final_poo/IEN/src/org/iftm/poo/model/domain/ItemEmprestimo.java</file>
+            <file>file:/home/vhmolinar/pos/trabalho_final_poo/IEN/src/org/iftm/poo/controller/LivroController.java</file>
+            <file>file:/home/vhmolinar/pos/trabalho_final_poo/IEN/src/org/iftm/main/Main.java</file>
+            <file>file:/home/vhmolinar/pos/trabalho_final_poo/IEN/src/org/iftm/poo/model/domain/Livro.java</file>
+        </group>
+>>>>>>> e357ef5c3b439ec742408531657b5b15812fd5a1
     </open-files>
 </project-private>
