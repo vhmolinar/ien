@@ -43,12 +43,19 @@
                   <th>Nome</th>
                   <th>Edição</th>
                   <th>Ano</th>
+                  <th></th>
                 </tr>
-                <tr ng-repeat="livro in livros track by livro.codigo" ng-click="seleciona(livro)">
+                <tr ng-repeat="livro in livros track by livro.codigo" ng-click="seleciona(livro);">
                   <td>{{livro.codigo}}</td>
                   <td>{{livro.nome}}</td>
                   <td>{{livro.edicao}}</td>
                   <td>{{livro.ano}}</td>
+                  <td>
+                    <button class="btn btn-default btn-sm"
+                            ng-click="remove(livro); $event.stopPropagation();">
+                      <span class="glyphicon glyphicon-remove"></span> Remover
+                    </button>
+                  </td>
                 </tr>
               </table>
             </div>
