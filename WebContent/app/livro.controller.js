@@ -8,15 +8,20 @@ angular.module('ien').controller('livroController',[
              $resource,
              $timeout){
 
-    var Livro = $resource('/ien/livro');
+    var Livro = $resource('/ien-master/livro');
 
-    $timeout(function(){
-        Livro.$query().then(function resposta(resp){
+    var $this = {};
+
+
+    $this.buscarLivros = function(){
+        Livro.query(function resposta(resp){
             console.log(resp);
         }, function falha(){
             alert("Falha ao carregar livros!");
         });
-    });
+    };
+
+    $timeout($this.buscarLivros);
 
     $scope.livros = [
         {codigo:1, nome:"O Monge e o Executivo", edicao: "1", ano: 2015},

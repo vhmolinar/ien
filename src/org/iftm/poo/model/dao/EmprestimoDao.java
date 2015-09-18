@@ -6,8 +6,10 @@
 package org.iftm.poo.model.dao;
 
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+
 import org.iftm.poo.model.domain.Emprestimo;
 import org.iftm.poo.model.domain.ItemEmprestimo;
 
@@ -31,7 +33,8 @@ public class EmprestimoDao extends TemplateDao<Emprestimo>{
         return emprestimo;
     }
     
-    public List<ItemEmprestimo> itensEmprestimo(Emprestimo e) throws Exception{
+    @SuppressWarnings("unchecked")
+	public List<ItemEmprestimo> itensEmprestimo(Emprestimo e) throws Exception{
         return (List<ItemEmprestimo>) operacaoTransacional(new ComandoPersistencia() {
             @Override
             public Object execute(EntityManager em) throws Exception {
