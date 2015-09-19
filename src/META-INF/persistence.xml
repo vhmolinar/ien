@@ -8,6 +8,20 @@
 	<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
 	<jta-data-source>java:jboss/datasources/ien</jta-data-source>
+	
+	<class>org.iftm.poo.model.domain.Livro</class>
+	<class>org.iftm.poo.model.domain.ItemLivro</class>
+	<class>org.iftm.poo.model.domain.Autor</class>
+	<class>org.iftm.poo.model.domain.Categoria</class>
+	<class>org.iftm.poo.model.domain.Administrador</class>
+	<class>org.iftm.poo.model.domain.Aluno</class>
+	<class>org.iftm.poo.model.domain.DebitoEmprestimo</class>
+	<class>org.iftm.poo.model.domain.Emprestimo</class>
+	<class>org.iftm.poo.model.domain.ItemEmprestimo</class>
+	<class>org.iftm.poo.model.domain.Pessoa</class>
+	<class>org.iftm.poo.model.domain.Professor</class>
+	<class>org.iftm.poo.model.domain.Reserva</class>
+	<class>org.iftm.poo.model.domain.Usuario</class>
 
 	<properties>
 		<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
@@ -18,3 +32,4 @@
 	
   </persistence-unit>
 </persistence>
+
