@@ -7,6 +7,7 @@ package org.iftm.poo.negocio;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.iftm.poo.model.dao.AutorDao;
 import org.iftm.poo.model.dao.CategoriaDao;
 import org.iftm.poo.model.dao.ItemLivroDao;
@@ -73,7 +74,9 @@ public class LivroService {
         return livroDao.pesquisar(livro);
     }
     
-    public void excluirPorExemplo(Livro livro) throws Exception{
+    public void excluirPorCodigo(Integer codigo) throws Exception{
+        Livro livro = new Livro();
+        livro.setCodLivro(codigo);
         livroDao.excluir(livro);
     }
 	
@@ -91,5 +94,34 @@ public class LivroService {
         Livro livro = new Livro();
         return livroDao.pesquisar(livro);
     }
-            
+
+    public List<Categoria> pesquisarCategorias() throws Exception{
+    	Categoria categoria = new Categoria();
+    	return categoriaDao.pesquisar(categoria);
+    }
+    
+    public void apagarCategoriaPorcodigo(Integer codigo) throws Exception{
+    	Categoria categoria = new Categoria();
+    	categoria.setCodCategoria(codigo);
+    	categoriaDao.excluir(categoria);
+    }
+    
+    public void salvarAtualizarCategoria(Categoria categoria) throws Exception{
+    	categoriaDao.salvarAtualizar(categoria);
+    }
+    
+    public List<Autor> pesquisarAutores() throws Exception {
+    	Autor autor = new Autor();
+    	return autorDao.pesquisar(autor);
+    }
+    
+    public void salvarAtualizarAutor(Autor autor) throws Exception{
+    	autorDao.salvarAtualizar(autor);
+    }
+    
+    public void apagarAutorPorCodig(Integer codigo) throws Exception {
+    	Autor autor = new Autor();
+    	autor.setCodAutor(codigo);
+    	autorDao.excluir(autor);
+    }
 }
