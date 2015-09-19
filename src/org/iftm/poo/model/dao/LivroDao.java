@@ -51,7 +51,6 @@ public class LivroDao extends TemplateDao<Livro>{
         });
     }
     
-    @SuppressWarnings("unchecked")
 	@Override
     protected List<Livro> pesquisar(EntityManager em, Livro livro) throws Exception {
 //        StringBuilder sql = new StringBuilder("select livro from Livro as livro ");
