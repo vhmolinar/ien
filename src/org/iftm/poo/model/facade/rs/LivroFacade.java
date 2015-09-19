@@ -13,7 +13,12 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.iftm.poo.boundary.LivroDTO;
+import org.iftm.poo.model.domain.Autor;
+import org.iftm.poo.model.domain.Categoria;
+import org.iftm.poo.model.domain.ItemLivro;
 import org.iftm.poo.model.domain.Livro;
+import org.iftm.poo.model.domain.StatusLivro;
 import org.iftm.poo.negocio.LivroService;
 
 @Path("/livro")
@@ -28,24 +33,96 @@ public class LivroFacade {
 	private LivroService livroService;	
 	
 	@GET
-	public List<Livro> getLivros() throws Exception{
-		List<Livro> al = new ArrayList<Livro>();
-		al = livroService.pesquisarTodos();
+	public List<LivroDTO> getLivros() throws Exception{
+		List<LivroDTO> al = new ArrayList<LivroDTO>();
+		for (Livro livro: livroService.pesquisarTodos()){
+			al.add(new LivroDTO(livro));
+		}
 		return al;		
 	}
 
 	@POST
-	public void setLivro(Livro livro) throws Exception{
-		livroService.salvarAtualizarLivro(livro, 1);
+	public void setLivro(LivroDTO livroDTO) throws Exception{		
+		Livro livro = new Livro();
+		livro.setCodLivro(livroDTO.getCodigo());
+		livro.setNome(livro.getNome());
+		livro.setAno(livroDTO.getAno());
+		livro.setEdicao(livroDTO.getEdicao());
+		
+		Autor autor = new Autor();
+		autor.setCodAutor(livroDTO.getCodAutor());
+		autor.setNome(livroDTO.getNomeAutor());
+		livro.setAutor(autor);
+		
+		Categoria categoria = new Categoria();
+		categoria.setCodCategoria(livroDTO.getCodCategoria());
+		categoria.setDescricao(livroDTO.getNomeCategoria());
+		livro.setCategoria(categoria);
+		
+		ItemLivro item = new ItemLivro();
+		item.setLivro(livro);
+		item.setStatusLivro(StatusLivro.Disponivel);
+		List<ItemLivro> itens = new ArrayList<ItemLivro>();
+		itens.add(item);
+		
+		livro.setItens(itens);
+		
+		livroService.salvarAtualizarLivro(livro, livroDTO.getQtde());
 	}
 	
 	@PUT
-	public void updateLivro(Livro livro) throws Exception{
-		livroService.salvarAtualizarLivro(livro, 1);
+	public void updateLivro(LivroDTO livroDTO) throws Exception{
+		Livro livro = new Livro();
+		livro.setCodLivro(livroDTO.getCodigo());
+		livro.setNome(livro.getNome());
+		livro.setAno(livroDTO.getAno());
+		livro.setEdicao(livroDTO.getEdicao());
+		
+		Autor autor = new Autor();
+		autor.setCodAutor(livroDTO.getCodAutor());
+		autor.setNome(livroDTO.getNomeAutor());
+		livro.setAutor(autor);
+		
+		Categoria categoria = new Categoria();
+		categoria.setCodCategoria(livroDTO.getCodCategoria());
+		categoria.setDescricao(livroDTO.getNomeCategoria());
+		livro.setCategoria(categoria);
+		
+		ItemLivro item = new ItemLivro();
+		item.setLivro(livro);
+		item.setStatusLivro(StatusLivro.Disponivel);
+		List<ItemLivro> itens = new ArrayList<ItemLivro>();
+		itens.add(item);
+		
+		livro.setItens(itens);
+		livroService.salvarAtualizarLivro(livro, livroDTO.getQtde());
 	}
 	
 	@DELETE
-	public void dropLivro(Livro livro) throws Exception{
+	public void dropLivro(LivroDTO livroDTO) throws Exception{
+		Livro livro = new Livro();
+		livro.setCodLivro(livroDTO.getCodigo());
+		livro.setNome(livro.getNome());
+		livro.setAno(livroDTO.getAno());
+		livro.setEdicao(livroDTO.getEdicao());
+		
+		Autor autor = new Autor();
+		autor.setCodAutor(livroDTO.getCodAutor());
+		autor.setNome(livroDTO.getNomeAutor());
+		livro.setAutor(autor);
+		
+		Categoria categoria = new Categoria();
+		categoria.setCodCategoria(livroDTO.getCodCategoria());
+		categoria.setDescricao(livroDTO.getNomeCategoria());
+		livro.setCategoria(categoria);
+		
+		ItemLivro item = new ItemLivro();
+		item.setLivro(livro);
+		item.setStatusLivro(StatusLivro.Disponivel);
+		List<ItemLivro> itens = new ArrayList<ItemLivro>();
+		itens.add(item);
+		
+		livro.setItens(itens);
 		livroService.excluirPorExemplo(livro);
 	}
 

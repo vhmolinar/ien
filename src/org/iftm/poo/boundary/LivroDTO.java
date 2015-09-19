@@ -1,25 +1,69 @@
 package org.iftm.poo.boundary;
 
+import java.io.Serializable;
+
 import org.iftm.poo.model.domain.Livro;
 
-public class LivroDTO {
+public class LivroDTO implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	
 	private Integer codigo;
 	private String nome;
 	private String edicao;
 	private Integer ano;
 	private Integer qtde;
-	private String autor;
-	private String categoria;
 	
+	private Integer codAutor;
+	private String nomeAutor;
+
+	private Integer codCategoria;
+	private String nomeCategoria;
+	
+	public LivroDTO(){
+		
+	}
+	
+	public LivroDTO(Integer codigo, String nome, String edicao, Integer ano, Integer qtde, Integer codAutor,
+			String nomeAutor, Integer codCategoria, String nomeCategoria) {
+		super();
+		this.codigo = codigo;
+		this.nome = nome;
+		this.edicao = edicao;
+		this.ano = ano;
+		this.qtde = qtde;
+		this.codAutor = codAutor;
+		this.nomeAutor = nomeAutor;
+		this.codCategoria = codCategoria;
+		this.nomeCategoria = nomeCategoria;
+	}
+	
+	public LivroDTO(String nome, String edicao, Integer ano, Integer qtde, Integer codAutor,
+			String nomeAutor, Integer codCategoria, String nomeCategoria) {
+		super();
+		this.nome = nome;
+		this.edicao = edicao;
+		this.ano = ano;
+		this.qtde = qtde;
+		this.codAutor = codAutor;
+		this.nomeAutor = nomeAutor;
+		this.codCategoria = codCategoria;
+		this.nomeCategoria = nomeCategoria;
+	}	
+
+
 	public LivroDTO(Livro livro){
 		this.codigo = livro.getCodLivro();
 		this.nome = livro.getNome();
 		this.edicao = livro.getEdicao();
 		this.ano = livro.getAno();
 		this.qtde = 1;
-		this.autor = livro.getAutor() != null ?  livro.getAutor().getNome() : null;
-		this.categoria = livro.getCategoria() != null ? livro.getCategoria().getDescricao() : null;
+		
+		this.codAutor = livro.getAutor() != null ?  livro.getAutor().getCodAutor() : null;
+		this.nomeAutor = livro.getAutor() != null ?  livro.getAutor().getNome() : null;
+		
+		this.codCategoria = livro.getCategoria() != null ? livro.getCategoria().getCodCategoria() : null;
+		this.nomeCategoria = livro.getCategoria() != null ? livro.getCategoria().getDescricao() : null;
 	}	
 	
 
@@ -63,19 +107,36 @@ public class LivroDTO {
 		this.qtde = qtde;
 	}
 
-	public String getAutor() {
-		return autor;
+	public String getNomeAutor() {
+		return nomeAutor;
 	}
 
-	public void setAutor(String autor) {
-		this.autor = autor;
+	public void setNomeAutor(String nomeAutor) {
+		this.nomeAutor = nomeAutor;
 	}
 
-	public String getCategoria() {
-		return categoria;
+	public Integer getCodAutor() {
+		return codAutor;
 	}
 
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
+	public void setCodAutor(Integer codAutor) {
+		this.codAutor = codAutor;
 	}
+
+	public Integer getCodCategoria() {
+		return codCategoria;
+	}
+
+	public void setCodCategoria(Integer codCategoria) {
+		this.codCategoria = codCategoria;
+	}
+
+	public String getNomeCategoria() {
+		return nomeCategoria;
+	}
+
+	public void setNomeCategoria(String nomeCategoria) {
+		this.nomeCategoria = nomeCategoria;
+	}
+
 }
