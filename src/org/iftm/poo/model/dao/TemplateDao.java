@@ -51,7 +51,8 @@ public abstract class TemplateDao<T> {
         return TemplateDao.this.salvarAtualizarImpl(em, entity);
     }
     
-    public T salvarAtualizar(T entity) throws Exception{
+    @SuppressWarnings("unchecked")
+	public T salvarAtualizar(T entity) throws Exception{
         return (T) this.operacaoTransacional(new ComandoPersistencia() {
             @Override
             public T execute(EntityManager em) throws Exception {
@@ -60,7 +61,8 @@ public abstract class TemplateDao<T> {
         });
     }
     
-    public List<T> pesquisar(T entity) throws Exception{
+    @SuppressWarnings("unchecked")
+	public List<T> pesquisar(T entity) throws Exception{
         return (List<T>) this.operacaoTransacional(new ComandoPersistencia() {
             @Override
             public Object execute(EntityManager em) throws Exception {
@@ -69,7 +71,8 @@ public abstract class TemplateDao<T> {
         });
     }
     
-    public T excluir(T entity) throws Exception{
+    @SuppressWarnings("unchecked")
+	public T excluir(T entity) throws Exception{
         return (T) this.operacaoTransacional(new ComandoPersistencia() {
             @Override
             public Object execute(EntityManager em) throws Exception {
