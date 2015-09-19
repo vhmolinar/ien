@@ -6,6 +6,7 @@
 package org.iftm.poo.model.dao;
 
 import java.util.List;
+
 import org.iftm.poo.model.domain.Categoria;
 
 /**
@@ -13,10 +14,11 @@ import org.iftm.poo.model.domain.Categoria;
  * @author vhmolinar
  */
 public class CategoriaDao extends TemplateDao<Categoria>{
+	
     public CategoriaDao(){
         this.tipoEntidade = Categoria.class;
     }
-    
+      
     public Categoria buscaPorDescricao(String descricao) throws Exception{
         Categoria exemplo = new Categoria(descricao);
         List<Categoria> resultado = pesquisar(exemplo);

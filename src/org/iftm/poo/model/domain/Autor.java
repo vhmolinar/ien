@@ -24,7 +24,8 @@ import javax.persistence.Table;
 @Table
 @Entity(name = "autor")
 public class Autor implements Serializable{
-    @Id
+	private static final long serialVersionUID = 1L;
+	@Id
     @Column(name = "cod")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codAutor;

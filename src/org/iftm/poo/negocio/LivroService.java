@@ -79,34 +79,5 @@ public class LivroService {
         Livro livro = new Livro();
         return livroDao.pesquisar(livro);
     }
-
-    public List<Categoria> pesquisarCategorias() throws Exception{
-    	Categoria categoria = new Categoria();
-    	return categoriaDao.pesquisar(categoria);
-    }
     
-    public void apagarCategoriaPorcodigo(Integer codigo) throws Exception{
-    	Categoria categoria = new Categoria();
-    	categoria.setCodCategoria(codigo);
-    	categoriaDao.excluir(categoria);
-    }
-    
-    public void salvarAtualizarCategoria(Categoria categoria) throws Exception{
-    	categoriaDao.salvarAtualizar(categoria);
-    }
-    
-    public List<Autor> pesquisarAutores() throws Exception {
-    	Autor autor = new Autor();
-    	return autorDao.pesquisar(autor);
-    }
-    
-    public void salvarAtualizarAutor(Autor autor) throws Exception{
-    	autorDao.salvarAtualizar(autor);
-    }
-    
-    public void apagarAutorPorCodig(Integer codigo) throws Exception {
-    	Autor autor = new Autor();
-    	autor.setCodAutor(codigo);
-    	autorDao.excluir(autor);
-    }
 }
