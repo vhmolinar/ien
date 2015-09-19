@@ -1,0 +1,53 @@
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a data-target="#cadastro_autores" data-toggle="tab">Cadastro</a></li>
+        <li role="presentation"><a data-target="#dados_autores" data-toggle="tab">Dados</a></li>
+      </ul>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Cadastro de autor</h3>
+        </div>
+        <div class="panel-body">
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="cadastro_autores">
+              <form>
+                <div class="form-group">
+                  <label for="Codigoo">Código</label>
+                  <input type="text" disabled class="form-control" ng-model="autor.codigo">
+                </div>
+                <div class="form-group">
+                  <label for="nome">Nome</label>
+                  <input type="text" class="form-control" placeholder="Nome" ng-model="autor.nome">
+                </div>
+                <button type="submit" class="btn btn-default" ng-click="registra(autor)">
+                    {{autor.codigo ? 'Atualizar' : 'Registrar'}}
+                </button>
+                <button type="button" class="btn btn-default" ng-click="limpa()">
+                    Limpa
+                </button>
+              </form>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="dados_autores">
+              <table class="table table-hover">
+                <tr>
+                  <th>Código</th>
+                  <th>Nome</th>
+                  <th></th>
+                </tr>
+                <tr ng-repeat="autor in autores track by autor.codigo" ng-click="seleciona(autor);">
+                  <td>{{autor.codigo}}</td>
+                  <td>{{autor.nome}}</td>
+                  <td>
+                    <button class="btn btn-default btn-sm"
+                            ng-click="remove(autor); $event.stopPropagation();">
+                      <span class="glyphicon glyphicon-remove"></span> Remover
+                    </button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

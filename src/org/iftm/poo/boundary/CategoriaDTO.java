@@ -7,6 +7,14 @@ public class CategoriaDTO {
 	private String descricao;
 	private Integer codigo;
 	
+	public CategoriaDTO(){
+		
+	}
+	
+	public CategoriaDTO(String descricao){
+		this.descricao = descricao;
+	}
+	
 	public CategoriaDTO(Categoria categoria){
 		this.descricao = categoria.getDescricao();
 		this.codigo = categoria.getCodCategoria();

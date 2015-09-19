@@ -21,12 +21,34 @@
                   <input type="text" class="form-control" placeholder="Nome" ng-model="livro.nome">
                 </div>
                 <div class="form-group">
+                  <label for="autor">Autor</label>
+                  <select
+                      id="autor"
+                      class="form-control"
+                      ng-model="livro.codAutor"
+                      ng-options="autor.codigo as autor.nome for autor in autores track by autor.codigo">
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="categoria">Categoria</label>
+                  <select
+                      id="categoria"
+                      class="form-control"
+                      ng-model="livro.codCategoria"
+                      ng-options="categoria.codigo as categoria.descricao for categoria in categorias track by categoria.codigo">
+                  </select>
+                </div>
+                <div class="form-group">
                   <label for="nome">Edição</label>
                   <input type="text" class="form-control" placeholder="Edição" ng-model="livro.edicao">
                 </div>
                 <div class="form-group">
                   <label for="nome">Ano</label>
                   <input type="text" class="form-control" placeholder="Ano" ng-model="livro.ano">
+                </div>
+                <div class="form-group">
+                  <label for="nome">Quantidade</label>
+                  <input type="number" class="form-control" placeholder="Quantidade" ng-model="livro.qtde">
                 </div>
                 <button type="submit" class="btn btn-default" ng-click="registra(livro)">
                     {{livro.codigo ? 'Atualizar' : 'Registrar'}}
@@ -41,15 +63,19 @@
                 <tr>
                   <th>Código</th>
                   <th>Nome</th>
-                  <th>Edição</th>
+                  <th>Autor</th>
+                  <th>Categoria</th>
                   <th>Ano</th>
+                  <th>Edição</th>
                   <th></th>
                 </tr>
                 <tr ng-repeat="livro in livros track by livro.codigo" ng-click="seleciona(livro);">
                   <td>{{livro.codigo}}</td>
                   <td>{{livro.nome}}</td>
-                  <td>{{livro.edicao}}</td>
+                  <td>{{livro.nomeAutor}}</td>
+                  <td>{{livro.nomeCategoria}}</td>
                   <td>{{livro.ano}}</td>
+                  <td>{{livro.edicao}}</td>
                   <td>
                     <button class="btn btn-default btn-sm"
                             ng-click="remove(livro); $event.stopPropagation();">

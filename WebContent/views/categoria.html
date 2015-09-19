@@ -1,0 +1,53 @@
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a data-target="#cadastro_categorias" data-toggle="tab">Cadastro</a></li>
+        <li role="presentation"><a data-target="#dados_categorias" data-toggle="tab">Dados</a></li>
+      </ul>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Cadastro de Categoria</h3>
+        </div>
+        <div class="panel-body">
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="cadastro_categorias">
+              <form>
+                <div class="form-group">
+                  <label for="Codigoo">Código</label>
+                  <input type="text" disabled class="form-control" ng-model="categoria.codigo">
+                </div>
+                <div class="form-group">
+                  <label for="nome">Descrição</label>
+                  <input type="text" class="form-control" placeholder="Descrição" ng-model="categoria.descricao">
+                </div>
+                <button type="submit" class="btn btn-default" ng-click="registra(categoria)">
+                    {{categoria.codigo ? 'Atualizar' : 'Registrar'}}
+                </button>
+                <button type="button" class="btn btn-default" ng-click="limpa()">
+                    Limpa
+                </button>
+              </form>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="dados_categorias">
+              <table class="table table-hover">
+                <tr>
+                  <th>Código</th>
+                  <th>Descrição</th>
+                  <th></th>
+                </tr>
+                <tr ng-repeat="categoria in categorias track by categoria.codigo" ng-click="seleciona(categoria);">
+                  <td>{{categoria.codigo}}</td>
+                  <td>{{categoria.descricao}}</td>
+                  <td>
+                    <button class="btn btn-default btn-sm"
+                            ng-click="remove(categoria); $event.stopPropagation();">
+                      <span class="glyphicon glyphicon-remove"></span> Remover
+                    </button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

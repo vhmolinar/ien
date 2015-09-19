@@ -40,23 +40,7 @@ public class LivroService {
     }
     
     public Livro salvarAtualizarLivro(Livro livro, Integer qtde) throws Exception{
-        
-        if(livro.getCategoria() == null){
-            throw new Exception("Categoria é necessária para identificação do livro.");
-        }
-        
-        Categoria categoria = categoriaDao.buscaPorDescricao(livro.getCategoria().getDescricao());
-        if(categoria == null){
-            categoria = categoriaDao.salvarAtualizar(livro.getCategoria());
-        }
-        livro.setCategoria(categoria);
-        
-        Autor autor = autorDao.buscaPorNome(livro.getAutor().getNome());
-        if(autor == null){
-            autor = autorDao.salvarAtualizar(livro.getAutor());
-        }
-        livro.setAutor(autor);
-        
+                
         livro = livroDao.salvarAtualizar(livro);
         List<ItemLivro> itens = new ArrayList<>();
         for(int i=0; i<qtde; ++i){
@@ -66,6 +50,7 @@ public class LivroService {
             itemLivroDao.salvarAtualizar(itemLivro);
             itens.add(itemLivro);
         }
+        
         livro.setItens(itens);
         return livro;
     }

@@ -47,11 +47,13 @@ public class DaoFactory {
         return instance;
     }
     
-    public <T extends TemplateDao> T resolve(){
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public <T extends TemplateDao> T resolve(){
         return (T) new GenericDao();
     }
     
-    public <T extends TemplateDao> T resolve(Class tipoEntidade){
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public <T extends TemplateDao> T resolve(Class tipoEntidade){
         if(tipoEntidade == Livro.class){
             return (T) new LivroDao();
         } else if(tipoEntidade == ItemLivro.class){

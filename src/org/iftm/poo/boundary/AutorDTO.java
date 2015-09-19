@@ -7,6 +7,14 @@ public class AutorDTO {
 	private String nome;
 	private Integer codigo;
 	
+	public AutorDTO(){
+		
+	}
+	
+	public AutorDTO(String nome){
+		this.nome = nome;
+	}
+	
 	public AutorDTO(Autor autor){
 		this.nome = autor.getNome();
 		this.codigo = autor.getCodAutor();

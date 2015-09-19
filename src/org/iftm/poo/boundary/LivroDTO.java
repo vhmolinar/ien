@@ -24,8 +24,7 @@ public class LivroDTO implements Serializable {
 		
 	}
 	
-	public LivroDTO(Integer codigo, String nome, String edicao, Integer ano, Integer qtde, Integer codAutor,
-			String nomeAutor, Integer codCategoria, String nomeCategoria) {
+	public LivroDTO(Integer codigo, String nome, String edicao, Integer ano, Integer qtde, Integer codAutor, Integer codCategoria) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
@@ -33,22 +32,17 @@ public class LivroDTO implements Serializable {
 		this.ano = ano;
 		this.qtde = qtde;
 		this.codAutor = codAutor;
-		this.nomeAutor = nomeAutor;
 		this.codCategoria = codCategoria;
-		this.nomeCategoria = nomeCategoria;
 	}
 	
-	public LivroDTO(String nome, String edicao, Integer ano, Integer qtde, Integer codAutor,
-			String nomeAutor, Integer codCategoria, String nomeCategoria) {
+	public LivroDTO(String nome, String edicao, Integer ano, Integer qtde, Integer codAutor, Integer codCategoria) {
 		super();
 		this.nome = nome;
 		this.edicao = edicao;
 		this.ano = ano;
 		this.qtde = qtde;
 		this.codAutor = codAutor;
-		this.nomeAutor = nomeAutor;
 		this.codCategoria = codCategoria;
-		this.nomeCategoria = nomeCategoria;
 	}	
 
 

@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
 
-      <li class="dropdown" ng-if="tipoUsuario == 'administrador'">
+      <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuários <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="#/aluno">Cadastra/Consulta Aluno</a></li>
@@ -42,10 +42,12 @@
         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Livros <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="#/livro">Livros</a></li>
+          <li><a href="#/livros/categoria">Categorias</a></li>
+          <li><a href="#/livros/autor">Autores</a></li>
         </ul>
       </li>
 
-      <li class="dropdown" ng-if="tipoUsuario == 'professor'">
+      <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sugestões <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="#/sugestao">Consulta Sugestões de Livros</a></li>

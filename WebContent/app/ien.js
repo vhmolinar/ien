@@ -25,6 +25,16 @@ angular.module('ien').config(['$routeProvider','$locationProvider',
         templateUrl: 'views/livro.html',
         controller: 'livroController'
 
+    }).when('/livros/categoria/:id?', {
+
+        templateUrl: 'views/categoria.html',
+        controller: 'categoriaController'
+
+    }).when('/livros/autor/:id?', {
+
+        templateUrl: 'views/autor.html',
+        controller: 'autorController'
+
     }).when('/home', {
 
         templateUrl: 'views/home.html',

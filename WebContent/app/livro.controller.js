@@ -1,11 +1,11 @@
 angular.module('ien').controller('livroController',[
     '$scope',
     '$ui',
-    '$resource',
+    '$rest',
     '$timeout',
     function($scope,
              $ui,
-             $resource,
+             $rest,
              $timeout){
 
     const panels = {
@@ -14,32 +14,53 @@ angular.module('ien').controller('livroController',[
     };
 
     var $this = {};
+    $scope.livro = {
+        codAutor: 1,
+        codCategoria: 1
+    };
+    $scope.livros = [];
+    $scope.categorias = [];
+    $scope.autores = [];
 
-    var Livro = $resource('/ien-master/rs/livro/:codigo', {
-        codigo: '@codigo'
-    },{
-        update: {
-            method: 'PUT'
-        }
-    });
+    var Livro = $rest.livro();
+    var Autor = $rest.autor();
+    var Categoria = $rest.categoria();
 
     $this.buscarLivros = function(){
         Livro.query(function resposta(resp){
 
-            console.log(resp);
+            $scope.livros = resp;
 
         }, function falha(){
             alert("Falha ao carregar livros!");
         });
     };
 
-    $timeout($this.buscarLivros);
+    $timeout(function(){
 
-    $scope.livros = [
-        {codigo:1, nome:"O Monge e o Executivo", edicao: "1", ano: 2015},
-        {codigo:2, nome:"Shantala", edicao: "1a", ano: 2013},
-        {codigo:3, nome:"Ansiedade, Mal do Século", edicao: "10", ano: 2014}
-    ];
+        $this.buscarLivros();
+
+        Autor.query(function(resp){
+
+            $scope.autores = resp;
+
+        }, function falha(){
+
+            alert('Falha ao buscar autores!');
+
+        });
+
+        Categoria.query(function(resp){
+
+            $scope.categorias = resp;
+
+        }, function falha(){
+
+            alert('Falha ao buscar categorias!');
+
+        });
+
+    });
 
     $scope.seleciona = function(livro){
         $scope.livro = livro;
@@ -47,8 +68,9 @@ angular.module('ien').controller('livroController',[
     };
 
     $scope.remove = function(livro){
-        Livro.$remove(livro, function sucesso(){
+        Livro.remove(livro, function sucesso(){
 
+            $this.buscarLivros();
             alert('Livro removido!');
 
         }, function falha(){
@@ -64,7 +86,7 @@ angular.module('ien').controller('livroController',[
 
         if(atualizacao){
 
-            Livro.$update(livro, function sucesso(){
+            Livro.update(livro, function sucesso(){
 
                 $ui.tab(panels.dados);
 
@@ -74,14 +96,11 @@ angular.module('ien').controller('livroController',[
 
         } else {
 
-            Livro.$save({
-                nome: livro.nome,
-                edicao: livro.edicao,
-                ano: livro.ano
-            }, function sucesso(){
+            Livro.save(livro, function sucesso(){
 
                 $ui.tab(panels.dados);
                 $this.buscarLivros();
+                $scope.limpa();
 
             }, function falha(){
                 alert('Falha ao salvar livro!');

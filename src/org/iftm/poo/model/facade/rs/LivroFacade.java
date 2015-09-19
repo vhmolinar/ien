@@ -47,18 +47,16 @@ public class LivroFacade {
 	@POST
 	public void salvarLivro(LivroDTO livroDTO) throws Exception{		
 		Livro livro = new Livro();
-		livro.setNome(livro.getNome());
+		livro.setNome(livroDTO.getNome());
 		livro.setAno(livroDTO.getAno());
 		livro.setEdicao(livroDTO.getEdicao());
 		
 		Autor autor = new Autor();
 		autor.setCodAutor(livroDTO.getCodAutor());
-		autor.setNome(livroDTO.getNomeAutor());
 		livro.setAutor(autor);
 		
 		Categoria categoria = new Categoria();
 		categoria.setCodCategoria(livroDTO.getCodCategoria());
-		categoria.setDescricao(livroDTO.getNomeCategoria());
 		livro.setCategoria(categoria);
 		
 		ItemLivro item = new ItemLivro();
@@ -82,12 +80,10 @@ public class LivroFacade {
 		
 		Autor autor = new Autor();
 		autor.setCodAutor(livroDTO.getCodAutor());
-		autor.setNome(livroDTO.getNomeAutor());
 		livro.setAutor(autor);
 		
 		Categoria categoria = new Categoria();
 		categoria.setCodCategoria(livroDTO.getCodCategoria());
-		categoria.setDescricao(livroDTO.getNomeCategoria());
 		livro.setCategoria(categoria);
 		
 		ItemLivro item = new ItemLivro();
