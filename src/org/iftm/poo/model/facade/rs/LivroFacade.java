@@ -14,8 +14,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.iftm.poo.boundary.AutorDTO;
-import org.iftm.poo.boundary.CategoriaDTO;
 import org.iftm.poo.boundary.LivroDTO;
 import org.iftm.poo.model.domain.Autor;
 import org.iftm.poo.model.domain.Categoria;
@@ -104,81 +102,5 @@ public class LivroFacade {
 	@Path("{codigo}")
 	public void apagarLivro(@PathParam("codigo") Integer codigo) throws Exception{
 		livroService.excluirPorCodigo(codigo);
-	}
-	
-	@POST
-	@Path("/categoria")
-	public void salvarCategoria(CategoriaDTO categoriaDto) throws Exception{
-		Categoria categoria = new Categoria();
-		categoria.setDescricao(categoriaDto.getDescricao());
-		
-		livroService.salvarAtualizarCategoria(categoria);
-	}
-	
-	@PUT
-	@Path("/categoria")
-	public void atualizarCategoria(CategoriaDTO categoriaDto) throws Exception{
-		Categoria categoria = new Categoria();
-		categoria.setCodCategoria(categoriaDto.getCodigo());
-		categoria.setDescricao(categoriaDto.getDescricao());
-		
-		livroService.salvarAtualizarCategoria(categoria);
-	}
-	
-	@GET
-	@Path("/categoria")
-	public List<CategoriaDTO> getCategorias() throws Exception{
-		List<Categoria> categorias = livroService.pesquisarCategorias();
-		
-		List<CategoriaDTO> categoriasDto = new ArrayList<>();
-		for(Categoria categoria : categorias){
-			categoriasDto.add(new CategoriaDTO(categoria));
-		}
-		
-		return categoriasDto;
-	}
-	
-	@DELETE
-	@Path("{codigo}")
-	public void apagarCategoria(Integer codigo) throws Exception{
-		livroService.apagarCategoriaPorcodigo(codigo);
-	}
-	
-	@GET
-	@Path("/autor")	
-	public List<AutorDTO> getAutores() throws Exception {
-		List<Autor> autores = livroService.pesquisarAutores();
-		
-		List<AutorDTO> autoresDTO = new ArrayList<>();
-		for(Autor autor : autores){
-			autoresDTO.add(new AutorDTO(autor));
-		}
-		
-		return autoresDTO;
-	}
-	
-	@POST
-	@Path("/autor")
-	public void salvarAutor(AutorDTO autorDTO) throws Exception{
-		Autor autor = new Autor();
-		autor.setNome(autorDTO.getNome());
-		
-		livroService.salvarAtualizarAutor(autor);
-	}
-	
-	@PUT
-	@Path("/autor")
-	public void atualizarAutor(AutorDTO autorDTO) throws Exception{
-		Autor autor = new Autor();
-		autor.setCodAutor(autorDTO.getCodigo());
-		autor.setNome(autorDTO.getNome());
-		
-		livroService.salvarAtualizarAutor(autor);
-	}
-	
-	@DELETE
-	@Path("{codigo}")
-	public void apagarAutor(Integer codigo) throws Exception{
-		livroService.apagarCategoriaPorcodigo(codigo);
 	}
 }

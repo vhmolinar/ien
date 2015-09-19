@@ -23,34 +23,6 @@ public class LivroDTO implements Serializable {
 	public LivroDTO(){
 		
 	}
-	
-	public LivroDTO(Integer codigo, String nome, String edicao, Integer ano, Integer qtde, Integer codAutor,
-			String nomeAutor, Integer codCategoria, String nomeCategoria) {
-		super();
-		this.codigo = codigo;
-		this.nome = nome;
-		this.edicao = edicao;
-		this.ano = ano;
-		this.qtde = qtde;
-		this.codAutor = codAutor;
-		this.nomeAutor = nomeAutor;
-		this.codCategoria = codCategoria;
-		this.nomeCategoria = nomeCategoria;
-	}
-	
-	public LivroDTO(String nome, String edicao, Integer ano, Integer qtde, Integer codAutor,
-			String nomeAutor, Integer codCategoria, String nomeCategoria) {
-		super();
-		this.nome = nome;
-		this.edicao = edicao;
-		this.ano = ano;
-		this.qtde = qtde;
-		this.codAutor = codAutor;
-		this.nomeAutor = nomeAutor;
-		this.codCategoria = codCategoria;
-		this.nomeCategoria = nomeCategoria;
-	}	
-
 
 	public LivroDTO(Livro livro){
 		this.codigo = livro.getCodLivro();

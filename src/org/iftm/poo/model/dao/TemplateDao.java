@@ -8,6 +8,7 @@ package org.iftm.poo.model.dao;
 import java.lang.reflect.Field;
 import java.util.List;
 
+import javax.jms.Session;
 import javax.persistence.EntityManager;
 import javax.persistence.Id;
 
@@ -38,13 +39,15 @@ public abstract class TemplateDao<T> {
         return entity;
     }
     
-    protected List<T> pesquisar(EntityManager em, T entity) throws Exception{
+    @SuppressWarnings("unchecked")
+	protected List<T> pesquisar(EntityManager em, T entity) throws Exception{
+    	
 //        Session session = (Session) em.getDelegate();
 //        Example example = Example.create(entity).excludeZeroes();
 //        Criteria criteria = session.createCriteria(tipoEntidade).add(example);
 //        return criteria.list();
     	
-    	return null;
+    	return em.createQuery("from " + entity.getClass().getName()).getResultList();
     }
     
     public T salvarAtualizar(EntityManager em, T entity) throws Exception{
