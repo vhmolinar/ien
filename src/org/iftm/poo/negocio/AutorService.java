@@ -8,9 +8,7 @@ package org.iftm.poo.negocio;
 import java.util.List;
 
 import org.iftm.poo.model.dao.AutorDao;
-import org.iftm.poo.model.dao.CategoriaDao;
 import org.iftm.poo.model.domain.Autor;
-import org.iftm.poo.model.domain.Categoria;
 import org.iftm.poo.service.DaoFactory;
 
 /**

@@ -15,7 +15,6 @@ import javax.ws.rs.core.MediaType;
 
 import org.iftm.poo.boundary.AutorDTO;
 import org.iftm.poo.model.domain.Autor;
-import org.iftm.poo.model.domain.Categoria;
 import org.iftm.poo.negocio.AutorService;
 
 @Path("/autor")

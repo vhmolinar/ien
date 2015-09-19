@@ -7,13 +7,14 @@ package org.iftm.poo.negocio;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.persistence.EntityManager;
+
 import org.iftm.poo.model.dao.EmprestimoDao;
 import org.iftm.poo.model.dao.GenericDao;
 import org.iftm.poo.model.dao.ItemEmprestimoDao;
 import org.iftm.poo.model.dao.ItemLivroDao;
 import org.iftm.poo.model.dao.TemplateDao;
-import org.iftm.poo.model.dao.UsuarioDao;
 import org.iftm.poo.model.domain.Emprestimo;
 import org.iftm.poo.model.domain.ItemEmprestimo;
 import org.iftm.poo.model.domain.ItemLivro;
@@ -29,7 +30,6 @@ import org.iftm.poo.service.DaoFactory;
 public class EmprestimoService {
     
     private final EmprestimoDao emprestimoDao;
-    private final UsuarioDao usuarioDao;
     private final GenericDao genericDao;
     private final ItemLivroDao itemLivroDao;
     private final ItemEmprestimoDao itemEmprestimoDao;
@@ -37,7 +37,7 @@ public class EmprestimoService {
   
     public EmprestimoService(){
         emprestimoDao = DaoFactory.get().resolve(Emprestimo.class);
-        usuarioDao = DaoFactory.get().resolve(Usuario.class);
+        DaoFactory.get().resolve(Usuario.class);
         itemLivroDao = DaoFactory.get().resolve(ItemLivro.class);
         genericDao = DaoFactory.get().resolve();
         itemEmprestimoDao = DaoFactory.get().resolve(ItemEmprestimo.class);
