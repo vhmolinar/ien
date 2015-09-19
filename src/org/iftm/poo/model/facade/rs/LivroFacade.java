@@ -8,7 +8,6 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -26,7 +25,6 @@ import org.iftm.poo.negocio.LivroService;
 @Produces({
 	MediaType.APPLICATION_JSON})
 @Consumes({
-	MediaType.TEXT_PLAIN,
 	MediaType.APPLICATION_JSON})
 public class LivroFacade {
 	
@@ -41,38 +39,12 @@ public class LivroFacade {
 		}
 		return al;		
 	}
-
-	@POST
-	public void salvarLivro(LivroDTO livroDTO) throws Exception{		
-		Livro livro = new Livro();
-		livro.setNome(livroDTO.getNome());
-		livro.setAno(livroDTO.getAno());
-		livro.setEdicao(livroDTO.getEdicao());
-		
-		Autor autor = new Autor();
-		autor.setCodAutor(livroDTO.getCodAutor());
-		livro.setAutor(autor);
-		
-		Categoria categoria = new Categoria();
-		categoria.setCodCategoria(livroDTO.getCodCategoria());
-		livro.setCategoria(categoria);
-		
-		ItemLivro item = new ItemLivro();
-		item.setLivro(livro);
-		item.setStatusLivro(StatusLivro.Disponivel);
-		List<ItemLivro> itens = new ArrayList<ItemLivro>();
-		itens.add(item);
-		
-		livro.setItens(itens);
-		
-		livroService.salvarAtualizarLivro(livro, livroDTO.getQtde());
-	}
 	
-	@PUT
-	public void atualizarLivro(LivroDTO livroDTO) throws Exception{
+	@POST
+	public void salvarAtualizarLivro(LivroDTO livroDTO) throws Exception{
 		Livro livro = new Livro();
 		livro.setCodLivro(livroDTO.getCodigo());
-		livro.setNome(livro.getNome());
+		livro.setNome(livroDTO.getNome());
 		livro.setAno(livroDTO.getAno());
 		livro.setEdicao(livroDTO.getEdicao());
 		

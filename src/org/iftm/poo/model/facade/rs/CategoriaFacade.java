@@ -8,8 +8,8 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -21,7 +21,6 @@ import org.iftm.poo.negocio.CategoriaService;
 @Produces({
 	MediaType.APPLICATION_JSON})
 @Consumes({
-	MediaType.TEXT_PLAIN,
 	MediaType.APPLICATION_JSON})
 public class CategoriaFacade {
 	
@@ -38,30 +37,18 @@ public class CategoriaFacade {
 	}
 
 	@POST
-	public void setCategoria(CategoriaDTO categoriaDTO) throws Exception{		
+	public void salvarAtualizarCategoria(CategoriaDTO categoriaDTO) throws Exception{
 		Categoria categoria = new Categoria();
 		categoria.setCodCategoria(categoriaDTO.getCodigo());
-		categoria.setDescricao(categoria.getDescricao());
+		categoria.setDescricao(categoriaDTO.getDescricao());
+		
 		
 		categoriaService.salvarAtualizarCategoria(categoria);
 	}
-	
-	@PUT
-	public void updateCategoria(CategoriaDTO categoriaDTO) throws Exception{
-		Categoria categoria = new Categoria();
-		categoria.setCodCategoria(categoriaDTO.getCodigo());
-		categoria.setDescricao(categoria.getDescricao());
 		
-		categoriaService.salvarAtualizarCategoria(categoria);
-	}
-	
 	@DELETE
-	public void dropCategoria(CategoriaDTO categoriaDTO) throws Exception{
-		Categoria categoria = new Categoria();
-		categoria.setCodCategoria(categoriaDTO.getCodigo());
-		categoria.setDescricao(categoria.getDescricao());
-
-		categoriaService.excluirPorExemplo(categoria);
+	@Path("{codigo}")
+	public void apagarCategoria(@PathParam("codigo") Integer codigo) throws Exception{
+		categoriaService.excluirPorCodigo(codigo);
 	}
-
 }

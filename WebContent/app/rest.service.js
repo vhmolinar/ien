@@ -15,7 +15,7 @@ angular.module('ien').service('$rest',['$resource',function($resource){
 
         autor: function(){
 
-            return $resource('/ien/rs/livro/autor/:codigo', {
+            return $resource('/ien/rs/autor/:codigo', {
                 codigo: '@codigo'
             },{
                 update: {
@@ -27,7 +27,7 @@ angular.module('ien').service('$rest',['$resource',function($resource){
 
         categoria: function(){
 
-            return $resource('/ien/rs/livro/categoria/:codigo', {
+            return $resource('/ien/rs/categoria/:codigo', {
                 codigo: '@codigo'
             },{
                 update: {

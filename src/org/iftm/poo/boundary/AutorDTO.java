@@ -11,7 +11,8 @@ public class AutorDTO {
 		
 	}
 	
-	public AutorDTO(String nome){
+	public AutorDTO(Integer codigo, String nome){
+		this.codigo = codigo;
 		this.nome = nome;
 	}
 	

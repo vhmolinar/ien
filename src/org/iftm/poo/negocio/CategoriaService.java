@@ -47,4 +47,10 @@ public class CategoriaService {
         return categoriaDao.pesquisar(categoria);
     }
             
+
+    public void excluirPorCodigo(Integer codigo) throws Exception{
+    	Categoria categoria = new Categoria();
+    	categoria.setCodCategoria(codigo);
+    	categoriaDao.excluir(categoria);
+    }
 }

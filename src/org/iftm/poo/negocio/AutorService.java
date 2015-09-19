@@ -35,6 +35,14 @@ public class AutorService {
     public void excluirPorExemplo(Autor autor) throws Exception{
         autorDao.excluir(autor);
     }
+    
+    public void excluirPorCodigo(Integer codigo) throws Exception{
+
+		Autor autor = new Autor();
+		autor.setCodAutor(codigo);
+		
+		autorDao.excluir(autor);
+    }
 	
 	public Autor pesquisarPorCodigo(Integer codAutor) throws Exception {
         Autor a = new Autor();

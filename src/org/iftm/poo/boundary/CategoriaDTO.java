@@ -11,6 +11,11 @@ public class CategoriaDTO {
 		
 	}
 	
+	public CategoriaDTO(Integer codigo, String descricao){
+		this.codigo = codigo;
+		this.descricao = descricao;
+	}
+	
 	public CategoriaDTO(String descricao){
 		this.descricao = descricao;
 	}

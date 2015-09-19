@@ -8,12 +8,8 @@ package org.iftm.poo.negocio;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.iftm.poo.model.dao.AutorDao;
-import org.iftm.poo.model.dao.CategoriaDao;
 import org.iftm.poo.model.dao.ItemLivroDao;
 import org.iftm.poo.model.dao.LivroDao;
-import org.iftm.poo.model.domain.Autor;
-import org.iftm.poo.model.domain.Categoria;
 import org.iftm.poo.model.domain.ItemLivro;
 import org.iftm.poo.model.domain.Livro;
 import org.iftm.poo.model.domain.StatusLivro;
@@ -28,15 +24,11 @@ import org.iftm.poo.service.DaoFactory;
 public class LivroService {
     
     private final LivroDao livroDao;
-    private final CategoriaDao categoriaDao;
     private final ItemLivroDao itemLivroDao;
-    private final AutorDao autorDao;
     
     public LivroService(){
         livroDao = DaoFactory.get().resolve(Livro.class);
         itemLivroDao = DaoFactory.get().resolve(ItemLivro.class);
-        categoriaDao = DaoFactory.get().resolve(Categoria.class);
-        autorDao = DaoFactory.get().resolve(Autor.class);
     }
     
     public Livro salvarAtualizarLivro(Livro livro, Integer qtde) throws Exception{
