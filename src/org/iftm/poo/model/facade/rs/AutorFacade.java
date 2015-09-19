@@ -8,6 +8,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -37,7 +38,18 @@ public class AutorFacade {
 	}
 
 	@POST
-	public void setAutor(AutorDTO autorDTO) throws Exception{
+	public void salvarAutor(AutorDTO autorDTO) throws Exception{
+		Autor autor = new Autor();
+		autor.setCodAutor(autorDTO.getCodigo());
+		autor.setNome(autorDTO.getNome());
+		
+		
+		autorService.salvarAtualizarAutor(autor);
+	}
+
+	@PUT
+	@Path("{codigo}")
+	public void atualizarAutor(@PathParam("codigo") Integer codigo, AutorDTO autorDTO) throws Exception{
 		Autor autor = new Autor();
 		autor.setCodAutor(autorDTO.getCodigo());
 		autor.setNome(autorDTO.getNome());

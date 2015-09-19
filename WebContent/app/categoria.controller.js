@@ -54,39 +54,39 @@ angular.module('ien').controller('categoriaController',[
         var atualizacao = categoria.codigo !== undefined && categoria.codigo !== null;
 
 
-        Categoria.save(categoria, function sucesso(){
+        // Categoria.save(categoria, function sucesso(){
 
-            $ui.tab(panels.dados);
-            $this.buscarCategorias();
-            $scope.limpa();
+        //     $ui.tab(panels.dados);
+        //     $this.buscarCategorias();
+        //     $scope.limpa();
 
-        }, function falha(){
-            alert('Falha ao salvar categoria!');
-        });
+        // }, function falha(){
+        //     alert('Falha ao salvar categoria!');
+        // });
 
-        // if(atualizacao){
+        if(atualizacao){
 
-        //     Categoria.update(categoria, function sucesso(){
+            Categoria.update(categoria, function sucesso(){
 
-        //         $ui.tab(panels.dados);
+                $ui.tab(panels.dados);
 
-        //     }, function falha(){
-        //         alert('Falha ao atualizar categoria!');
-        //     });
+            }, function falha(){
+                alert('Falha ao atualizar categoria!');
+            });
 
-        // } else {
+        } else {
 
-        //     Categoria.save(categoria, function sucesso(){
+            Categoria.save(categoria, function sucesso(){
 
-        //         $ui.tab(panels.dados);
-        //         $this.buscarCategorias();
-        //         $scope.limpa();
+                $ui.tab(panels.dados);
+                $this.buscarCategorias();
+                $scope.limpa();
 
-        //     }, function falha(){
-        //         alert('Falha ao salvar categoria!');
-        //     });
+            }, function falha(){
+                alert('Falha ao salvar categoria!');
+            });
 
-        // }
+        }
 
     };
 

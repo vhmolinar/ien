@@ -26,7 +26,7 @@
                       id="autor"
                       class="form-control"
                       ng-model="livro.codAutor"
-                      ng-options="autor.codigo as autor.nome for autor in autores track by autor.codigo">
+                      ng-options="autor.codigo as autor.nome for autor in autores">
                   </select>
                 </div>
                 <div class="form-group">
@@ -35,7 +35,7 @@
                       id="categoria"
                       class="form-control"
                       ng-model="livro.codCategoria"
-                      ng-options="categoria.codigo as categoria.descricao for categoria in categorias track by categoria.codigo">
+                      ng-options="categoria.codigo as categoria.descricao for categoria in categorias">
                   </select>
                 </div>
                 <div class="form-group">

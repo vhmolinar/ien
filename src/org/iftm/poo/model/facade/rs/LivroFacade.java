@@ -8,6 +8,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -42,6 +43,32 @@ public class LivroFacade {
 	
 	@POST
 	public void salvarAtualizarLivro(LivroDTO livroDTO) throws Exception{
+		Livro livro = new Livro();
+		livro.setNome(livroDTO.getNome());
+		livro.setAno(livroDTO.getAno());
+		livro.setEdicao(livroDTO.getEdicao());
+		
+		Autor autor = new Autor();
+		autor.setCodAutor(livroDTO.getCodAutor());
+		livro.setAutor(autor);
+		
+		Categoria categoria = new Categoria();
+		categoria.setCodCategoria(livroDTO.getCodCategoria());
+		livro.setCategoria(categoria);
+		
+		ItemLivro item = new ItemLivro();
+		item.setLivro(livro);
+		item.setStatusLivro(StatusLivro.Disponivel);
+		List<ItemLivro> itens = new ArrayList<ItemLivro>();
+		itens.add(item);
+		
+		livro.setItens(itens);
+		livroService.salvarAtualizarLivro(livro, livroDTO.getQtde());
+	}
+	
+	@PUT
+	@Path("{codigo}")
+	public void atualizarLivro(@PathParam("codigo") Integer codigo, LivroDTO livroDTO) throws Exception{
 		Livro livro = new Livro();
 		livro.setCodLivro(livroDTO.getCodigo());
 		livro.setNome(livroDTO.getNome());
