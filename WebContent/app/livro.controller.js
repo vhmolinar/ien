@@ -15,7 +15,7 @@ angular.module('ien').controller('livroController',[
 
     var $this = {};
 
-    var Livro = $resource('/ien-master/livro/:codigo', {
+    var Livro = $resource('/ien-master/rs/livro/:codigo', {
         codigo: '@codigo'
     },{
         update: {
